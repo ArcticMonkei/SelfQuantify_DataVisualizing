@@ -33,11 +33,11 @@ class Ball {
     for (int i = 0; i < balls.length; i ++) {
       b= balls[i];
       if (b!=this) {
-        acc = PVector.sub(loc, b.loc);
-        if (acc.mag()<1*(b.r+r)) {
+        acc = PVector.sub(loc, b.loc);//sub向量差
+        if (acc.mag()<1*(b.r+r)) {//mag向量长度
           touched = true;
           acc.mult(0.01);
-          speed.add(acc);
+          speed.add(acc);//add矢量相加？
           loc.add(speed);
           acc = new PVector(0, 0);
           //speed = new PVector(0,0);
@@ -76,7 +76,7 @@ class Ball {
 
   void touchedProcess() {
     if (touched) {
-      stroke(255, 255, 0, 255-index%100*2.5);
+      stroke(255, 255, 0, 255-index%100*2.5);//index%100求余函数
       strokeWeight(8);
       noFill();
       ellipse(loc.x, loc.y, r*2 + index%100/2, r*2 + index%100/2);
